@@ -6,8 +6,8 @@ function getBackground() {
     .then(r => r.json())
     .then(data => cache.setItem('photo', 'http://www.bing.com' + data.images[0].url))
     .then(url => fetch(url))
-    .then(r => r.blob())
-    .then(data => cache.setItem('photo', URL.createObjectURL(data)))
+    // .then(r => r.blob())
+    // .then(data => cache.setItem('photo', URL.createObjectURL(data)))
     .then(() => createBackgroundAlarm())
     .catch((e) => {
       console.error(e);
@@ -20,13 +20,14 @@ function getBackground() {
 
 function createBackgroundAlarm(date?: Date) {
   if (!date) {
+    const now = new Date();
     date = new Date();
-    if (date.getHours() > 7) {
-      date.setDate(date.getDate()+1);
-    }
     date.setSeconds(0);
     date.setMinutes(0);
     date.setHours(7);
+    if (date.getTime() < now.getTime()) {
+      date.setDate(date.getDate()+1);
+    }
   }
   
   chrome.alarms.create('getBackground', { when: date.getTime() })
@@ -36,14 +37,16 @@ function createBackgroundAlarm(date?: Date) {
 function onLoad() {
   getBackground();
   
-  chrome.alarms.onAlarm.addListener((alarm) => {
-    if (alarm.name === 'getBackground') {
-      getBackground();
-    }
-    console.log(alarm);
-  });
+  setTimeout(() => {
+    chrome.alarms.onAlarm.addListener((alarm) => {
+      if (alarm.name === 'getBackground') {
+        getBackground();
+      }
+      console.log(alarm);
+    });
 
-  createBackgroundAlarm();
+    createBackgroundAlarm();
+  }, 100);
 }
 
 onLoad();
