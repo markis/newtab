@@ -1,6 +1,7 @@
 /// <reference path="interfaces/_globals.d.ts" />
 import './stylesheets/reset';
 import './stylesheets/newtab';
+import './utilities/tracking';
 
 import CacheContext from './components/cache-context';
 import HeroImage from './components/hero-image';
