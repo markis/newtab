@@ -24,7 +24,7 @@ function createBackgroundAlarm(date?: Date) {
     date = new Date();
     date.setSeconds(0);
     date.setMinutes(0);
-    date.setHours(7);
+    date.setHours(date.getHours() + 1);
     if (date.getTime() < now.getTime()) {
       date.setDate(date.getDate()+1);
     }

@@ -22,5 +22,5 @@
   "offline_enabled": true,
   "permissions": [ "alarms", "unlimitedStorage", "*://www.bing.com/*" ],
   "short_name": "newtab",
-  "version": "0.0.0.5"
+  "version": "0.0.0.6"
 }
