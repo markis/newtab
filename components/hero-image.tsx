@@ -1,10 +1,10 @@
 import * as React from 'react';
 
-export declare interface IBackgroundProps {
+export declare interface BackgroundProps {
   backgroundUrl: string;
 }
 
-export default class Background extends React.Component<IBackgroundProps, any> {
+export default class Background extends React.Component<BackgroundProps, void> {
   render() {
     const { backgroundUrl } = this.props;
     const style = { backgroundImage: `url('${backgroundUrl}')` };

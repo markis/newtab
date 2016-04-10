@@ -1,11 +1,15 @@
 import * as React from 'react';
 
-export interface ITime {
+export interface TimerProps {
+  children?: (hours: number, minutes: number) => JSX.Element;
+}
+
+export interface TimerState {
   hours: number;
   minutes: number;
 }
 
-export default class Timer extends React.Component<any, ITime>{
+export default class Timer extends React.Component<TimerProps, TimerState>{
   private _interval: number;
   constructor() {
     super();
@@ -22,11 +26,12 @@ export default class Timer extends React.Component<any, ITime>{
 
   render() {
     return (
+      this.props.children && 
       this.props.children(this.state.hours, this.state.minutes)
     )
   }
   
-  private static _getTime(): ITime {
+  private static _getTime(): TimerState {
     const now = new Date();
     const hours = ((now.getHours() + 11) % 12 + 1);
     const minutes = now.getMinutes();

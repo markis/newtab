@@ -21,10 +21,9 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.ttf$|\.woff$|\.woff2$|\.eot$|\.svg$/, loader: 'url-loader' },
       { test: /\.css$/, loader: "style!css" },
       { test: /\.html$/, loader: "underscore-template-loader", query: { engine: 'lodash'} },
-      { test: /\.tsx$|\.ts$/, loader: 'babel-loader?presets[]=es2015&presets[]=react!ts-loader' }
+      { test: /\.tsx?$/, loader: 'babel-loader?presets[]=es2015&presets[]=react!ts-loader' }
     ]
   },
   resolve: {

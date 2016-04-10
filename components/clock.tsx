@@ -1,11 +1,11 @@
 import * as React from 'react';
 
-export declare interface IClockProps {
+export declare interface ClockProps {
   hours: number;
   minutes: number;
 }
 
-export default class Clock extends React.Component<IClockProps, any> {
+export default class Clock extends React.Component<ClockProps, void> {
   render() {
     const { hours, minutes } = this.props;
 

@@ -13,8 +13,10 @@ import { renderToStaticMarkup } from 'react-dom/server';
 
 const transparentGif = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 
+class StringCacheContext extends CacheContext<string> { }
+
 const app = (
-  <CacheContext cacheKey="photo" defaultValue={transparentGif}>
+  <StringCacheContext cacheKey="photo" defaultValue={transparentGif}>
     {(backgroundUrl: string) => backgroundUrl && (
       <HeroImage backgroundUrl={backgroundUrl}>
         <div className="container">
@@ -28,7 +30,7 @@ const app = (
         </div>
       </HeroImage>
     )}
-  </CacheContext>
+  </StringCacheContext>
 );
 
 setTimeout(() => {

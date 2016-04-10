@@ -1,13 +1,18 @@
 import { cache } from '../utilities/cache';
 import * as React from 'react';
 
-export interface ICacheContextProps {
+export interface CacheContextProps<T> extends React.Props<CacheContext<T>> {
   cacheKey: string;
-  defaultValue?: any;
+  defaultValue?: T;
+  children?: (data: T) => JSX.Element;
 }
 
-export default class CacheContext extends React.Component<ICacheContextProps, any>{
-  constructor(props: ICacheContextProps) {
+export interface CacheContextState<T> {
+  data: T;
+}
+
+export default class CacheContext<T> extends React.Component<CacheContextProps<T>, CacheContextState<T>>{
+  constructor(props: CacheContextProps<T>) {
     super(props);
     this.state = { data: this.props.defaultValue };
   }
@@ -23,9 +28,9 @@ export default class CacheContext extends React.Component<ICacheContextProps, an
   }
 
   render() {
-    const childRender: any = this.props['children'];
     return (
-      childRender(this.state.data)
+      this.props.children && 
+      this.props.children(this.state.data)
     )
   }
 }
