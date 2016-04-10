@@ -12,6 +12,6 @@ export default class Background extends React.Component<BackgroundProps, void> {
       <header className="hero-image fade in" style={style}>
         {this.props.children}
       </header>
-    )
+    );
   }
 }

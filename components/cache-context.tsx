@@ -18,8 +18,8 @@ export default class CacheContext<T> extends React.Component<CacheContextProps<T
   }
 
   componentDidMount() {
-    cache.getItem(this.props.cacheKey).then((value: any) => {
-      if (value === null) {
+    cache.getItem<T>(this.props.cacheKey).then(value => {
+      if (!value) {
         this.setState({data: this.props.defaultValue });
       } else {
         this.setState({data: value});
@@ -31,6 +31,6 @@ export default class CacheContext<T> extends React.Component<CacheContextProps<T
     return (
       this.props.children && 
       this.props.children(this.state.data)
-    )
+    );
   }
 }

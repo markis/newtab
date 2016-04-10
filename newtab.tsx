@@ -9,7 +9,6 @@ import Timer from './components/timer';
 import Clock from './components/clock';
 import * as React from 'react';
 import { render } from 'react-dom';
-import { renderToStaticMarkup } from 'react-dom/server';
 
 const transparentGif = "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7";
 

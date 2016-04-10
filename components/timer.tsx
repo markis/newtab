@@ -28,7 +28,7 @@ export default class Timer extends React.Component<TimerProps, TimerState>{
     return (
       this.props.children && 
       this.props.children(this.state.hours, this.state.minutes)
-    )
+    );
   }
   
   private static _getTime(): TimerState {

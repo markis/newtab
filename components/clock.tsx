@@ -11,7 +11,7 @@ export default class Clock extends React.Component<ClockProps, void> {
 
     return (
       <time>{hours}:{this._padZeros(minutes)}</time>
-    )
+    );
   }
 
   private _padZeros(value: number): string {
