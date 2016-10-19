@@ -1,15 +1,26 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
+    "lib": [ "es6", "dom", "es2015.promise" ],
     "outDir": "tmp",
     "noImplicitAny": true,
     "sourceMap": true,
-    "jsx": "react"
+    "jsx": "react",
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    "types": [
+      "chrome",
+      "react",
+      "react-dom",
+      "whatwg-fetch"
+    ]
   },
   "exclude": [
     "node_modules"
   ],
-  "paths": {
-    "collab": "./src/"
-  }
+  "files": [
+    "newtab.tsx",
+    "background.ts"
+  ]
 }

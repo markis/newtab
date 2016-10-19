@@ -1,4 +1,3 @@
-/// <reference path="interfaces/_globals.d.ts" />
 import './stylesheets/reset';
 import './stylesheets/newtab';
 import './utilities/tracking';

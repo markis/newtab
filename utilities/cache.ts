@@ -1,12 +1,21 @@
-declare var require: any;
-const localforage: LocalForage = require('localforage/dist/localforage.nopromises');
-
 export interface Cache {
   getItem<T>(key: string): Promise<T>;
   setItem<T>(key: string, value: T): Promise<T>;
 }
 
-export var cache: Cache = localforage.createInstance({
-  name: 'newtab',
-  storeName: 'data'
-});
+class cacheImpl implements Cache {
+  getItem<T>(key: string): Promise<T> {
+    return new Promise((resolve) => {
+      resolve(JSON.parse(localStorage.getItem(key)));
+    });
+  }
+
+  setItem<T>(key: string, value: T): Promise<T> {
+    return new Promise((resolve) => {
+      localStorage.setItem(key, JSON.stringify(value));
+      resolve(value);
+    });
+  }
+}
+
+export var cache = new cacheImpl();

@@ -1,4 +1,3 @@
-/// <reference path="interfaces/_globals.d.ts" />
 import { cache } from './utilities/cache';
 
 function getBackground() {
@@ -11,7 +10,7 @@ function getBackground() {
     .then(() => createBackgroundAlarm())
     .catch((e) => {
       console.error(e);
-      
+
       let date = new Date();
       date.setMinutes(date.getMinutes() + 5);
       createBackgroundAlarm(date);
@@ -29,14 +28,14 @@ function createBackgroundAlarm(date?: Date) {
       date.setDate(date.getDate()+1);
     }
   }
-  
+
   chrome.alarms.create('getBackground', { when: date.getTime() })
 }
 
 
 function onLoad() {
   getBackground();
-  
+
   setTimeout(() => {
     chrome.alarms.onAlarm.addListener((alarm) => {
       if (alarm.name === 'getBackground') {

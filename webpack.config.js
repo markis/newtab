@@ -1,4 +1,3 @@
-const HtmlMinifier = require('html-minifier');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -11,8 +10,7 @@ module.exports = {
   context: __dirname,
   entry: {
     newtab: "./newtab",
-    background: "./background",
-    popup: "./popup"
+    background: "./background"
   },
   output: {
     path: __dirname + "/dist",
@@ -23,27 +21,17 @@ module.exports = {
     loaders: [
       { test: /\.css$/, loader: "style!css" },
       { test: /\.html$/, loader: "underscore-template-loader", query: { engine: 'lodash'} },
-      { test: /\.tsx?$/, loader: 'babel-loader?presets[]=es2015&presets[]=react!ts-loader' }
+      { test: /\.tsx?$/, loader: 'ts-loader' }
     ]
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.css'],
-    alias: {
-      'localforage': 'localforage/dist/localforage.nopromises'
-    }
+    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.css']
   },
   plugins: [
     new CopyWebpackPlugin([
       { from: 'manifest.json' },
       { from: 'images/*.png' }
     ]),
-    new HtmlWebpackPlugin({
-      title: 'Popup',
-      filename: 'popup.html',
-      template: 'templates/popup.html',
-      minify: htmlMinifyOptions,
-      chunks: ['popup']
-    }),
     new HtmlWebpackPlugin({
       title: 'New Tab',
       filename: 'newtab.html',
