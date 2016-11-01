@@ -18,9 +18,9 @@ copyFile('manifest.json', 'dist/manifest.json');
 copyFile('templates/newtab.html', 'dist/newtab.html');
 copyFile('stylesheets/newtab.css', 'dist/newtab.css');
 
-function compilejs(input, output) {
+function compilejs(inFile, outFile) {
   rollup.rollup({
-    entry: input,
+    entry: inFile,
     plugins: [
       typescript({
         typescript: require('typescript')
@@ -50,7 +50,7 @@ function compilejs(input, output) {
   .then(function(bundle) {
     bundle.write({
       format: 'iife',
-      dest: output
+      dest: outFile
     });
   })
   .catch(function(err) {
