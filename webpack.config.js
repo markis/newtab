@@ -19,9 +19,8 @@ module.exports = {
   },
   module: {
     loaders: [
-      { test: /\.css$/, loader: "style!css" },
       { test: /\.html$/, loader: "underscore-template-loader", query: { engine: 'lodash'} },
-      { test: /\.tsx?$/, loader: 'ts-loader' }
+      { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
     ]
   },
   resolve: {
@@ -30,7 +29,7 @@ module.exports = {
   plugins: [
     new CopyWebpackPlugin([
       { from: 'manifest.json' },
-      { from: 'images/*.png' }
+      { from: 'stylesheets/*.css', flatten: true }
     ]),
     new HtmlWebpackPlugin({
       title: 'New Tab',

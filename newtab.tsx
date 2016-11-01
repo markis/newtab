@@ -1,5 +1,3 @@
-import './stylesheets/reset';
-import './stylesheets/newtab';
 import './utilities/tracking';
 
 import CacheContext from './components/cache-context';
