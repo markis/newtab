@@ -18,9 +18,5 @@
   },
   "exclude": [
     "node_modules"
-  ],
-  "files": [
-    "newtab.tsx",
-    "background.ts"
   ]
 }
