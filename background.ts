@@ -29,7 +29,7 @@ function createBackgroundAlarm(date?: Date) {
     }
   }
 
-  chrome.alarms.create('getBackground', { when: date.getTime() })
+  chrome['alarms'].create('getBackground', { 'when': date.getTime() })
 }
 
 
@@ -37,7 +37,7 @@ function onLoad() {
   getBackground();
 
   setTimeout(() => {
-    chrome.alarms.onAlarm.addListener((alarm) => {
+    chrome['alarms']['onAlarm'].addListener((alarm) => {
       if (alarm.name === 'getBackground') {
         getBackground();
       }

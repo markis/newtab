@@ -8,26 +8,25 @@
     "react-dom": "^15.3.2"
   },
   "devDependencies": {
-    "@types/chrome": "0.0.35",
+    "@types/chrome": "^0.0.35",
     "@types/react": "^0.14.41",
     "@types/react-dom": "^0.14.18",
-    "@types/whatwg-fetch": "0.0.32",
+    "@types/whatwg-fetch": "^0.0.32",
     "rollup": "^0.36.3",
     "rollup-plugin-commonjs": "^5.0.5",
     "rollup-plugin-node-resolve": "^2.0.0",
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-typescript": "^0.8.1",
+    "rollup-plugin-uglify": "^1.0.1",
     "typescript": "^2.0.6"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack -d --watch",
-    "build": "webpack -d --display-error-details",
-    "build:prod": "webpack -p"
+    "start": "node build.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/markistaylor/newtab.git"
+    "url": "git+https://github.com/markis/newtab.git"
   },
   "keywords": [
     "newtab"
@@ -35,7 +34,7 @@
   "author": "Markis Taylor <m@rkis.cc>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/markistaylor/newtab/issues"
+    "url": "https://github.com/markis/newtab/issues"
   },
-  "homepage": "https://github.com/markistaylor/newtab#readme"
+  "homepage": "https://github.com/markis/newtab#readme"
 }
