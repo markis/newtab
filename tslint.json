@@ -1,0 +1,9 @@
+{
+  "extends": ["tslint:recommended", "tslint-react"],
+  "rules": {
+    "interface-name": [true, "never-prefix"],
+    "quotemark": [true, "single", "avoid-escape"],
+    "arrow-parens": false,
+    "jsx-no-multiline-js": false
+  }
+}

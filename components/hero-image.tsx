@@ -5,11 +5,11 @@ export declare interface HeroImageProps {
 }
 
 export default class HeroImage extends React.Component<HeroImageProps, void> {
-  render() {
+  public render() {
     const { backgroundUrl } = this.props;
     const style = { backgroundImage: `url('${backgroundUrl}')` };
     return (
-      <header className="hero-image fade in" style={style}>
+      <header className='hero-image fade in' style={style}>
         {this.props.children}
       </header>
     );

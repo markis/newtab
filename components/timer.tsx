@@ -9,30 +9,30 @@ export interface TimerState {
   minutes: number;
 }
 
-export default class Timer extends React.Component<TimerProps, TimerState>{
-  private _interval: number;
+export default class Timer extends React.Component<TimerProps, TimerState> {
+  private interval: number;
 
   constructor() {
     super();
-    this.state = Timer._getTime();
+    this.state = this.getTime();
   }
 
-  componentDidMount() {
-    this._interval = setInterval(this._setTime.bind(this), 100);
+  public componentDidMount() {
+    this.interval = setInterval(this.setTime.bind(this), 100);
   }
 
-  componentWillUnmount() {
-    clearInterval(this._interval);
+  public componentWillUnmount() {
+    clearInterval(this.interval);
   }
 
-  render() {
+  public render() {
     return (
       this.props.children &&
       this.props.children(this.state.hours, this.state.minutes)
     );
   }
 
-  private static _getTime(): TimerState {
+  private getTime(): TimerState {
     const now = new Date();
     const hours = ((now.getHours() + 11) % 12 + 1);
     const minutes = now.getMinutes();
@@ -40,8 +40,8 @@ export default class Timer extends React.Component<TimerProps, TimerState>{
     return { hours, minutes };
   }
 
-  private _setTime() {
-    const time = Timer._getTime();
+  private setTime() {
+    const time = this.getTime();
 
     if (time.minutes !== this.state.minutes || time.hours !== this.state.hours) {
       this.setState(time);

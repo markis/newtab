@@ -1,12 +1,16 @@
 import { cache } from './utilities/cache';
 
+/* disabling tslint no-string-literal so that the code will work with google closure */
+/* tslint:disable:no-string-literal */
+const alarms = chrome['alarms'];
+const onAlarm = alarms['onAlarm'];
+/* tslint:enable:no-string-literal */
+
 function getBackground() {
   fetch('http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
     .then(r => r.json())
     .then(data => cache.setItem('photo', 'http://www.bing.com' + data.images[0].url))
     .then(url => fetch(url))
-    // .then(r => r.blob())
-    // .then(data => cache.setItem('photo', URL.createObjectURL(data)))
     .then(() => createBackgroundAlarm())
     .catch((e) => {
       console.error(e);
@@ -25,23 +29,21 @@ function createBackgroundAlarm(date?: Date) {
     date.setMinutes(0);
     date.setHours(date.getHours() + 1);
     if (date.getTime() < now.getTime()) {
-      date.setDate(date.getDate()+1);
+      date.setDate(date.getDate() + 1);
     }
   }
 
-  chrome['alarms'].create('getBackground', { 'when': date.getTime() })
+  alarms.create('getBackground', { when: date.getTime() });
 }
-
 
 function onLoad() {
   getBackground();
 
   setTimeout(() => {
-    chrome['alarms']['onAlarm'].addListener((alarm) => {
+    onAlarm.addListener((alarm) => {
       if (alarm.name === 'getBackground') {
         getBackground();
       }
-      console.log(alarm);
     });
 
     createBackgroundAlarm();
@@ -49,4 +51,3 @@ function onLoad() {
 }
 
 onLoad();
-

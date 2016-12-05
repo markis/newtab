@@ -18,9 +18,12 @@
     "rollup-plugin-replace": "^1.1.1",
     "rollup-plugin-typescript": "^0.8.1",
     "rollup-plugin-uglify": "^1.0.1",
+    "tslint": "^4.0.2",
+    "tslint-react": "^2.0.0",
     "typescript": "^2.0.10"
   },
   "scripts": {
+    "lint": "tslint src/**/*.tsx *.ts *.tsx",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node build.js"
   },

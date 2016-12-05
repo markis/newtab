@@ -6,7 +6,7 @@ export declare interface ClockProps {
 }
 
 export default class Clock extends React.Component<ClockProps, void> {
-  render() {
+  public render() {
     const { hours, minutes } = this.props;
 
     return (
@@ -15,8 +15,8 @@ export default class Clock extends React.Component<ClockProps, void> {
   }
 
   private _padZeros(value: number): string {
-    const str = "" + value;
-    const pad = "00"
+    const str = '' + value;
+    const pad = '00';
     return pad.substring(0, pad.length - str.length) + str;
   }
 }
