@@ -11,7 +11,7 @@
     "@types/chrome": "0.0.35",
     "@types/react": "^0.14.41",
     "@types/react-dom": "^0.14.18",
-    "@types/whatwg-fetch": "0.0.32",
+    "@types/whatwg-fetch": "0.0.33",
     "awesome-typescript-loader": "^2.2.4",
     "copy-webpack-plugin": "^4.0.0",
     "css-loader": "^0.25.0",
