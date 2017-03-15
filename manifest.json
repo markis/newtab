@@ -5,8 +5,8 @@
   },
   "chrome_url_overrides": {
     "newtab": "newtab.html"
-  }, 
-  "content_security_policy": "script-src 'self' https://www.google-analytics.com; object-src 'self'",
+  },
+  "content_security_policy": "script-src 'self' 'unsafe-eval' https://www.google-analytics.com; object-src 'self'",
   "description": "Replace new tab page with bing photos.",
   "icons": {
     "16": "images/icon16.png",
@@ -22,5 +22,5 @@
   "offline_enabled": true,
   "permissions": [ "alarms", "unlimitedStorage", "*://www.bing.com/*" ],
   "short_name": "newtab",
-  "version": "0.0.0.6"
+  "version": "0.0.0.7"
 }

@@ -3,7 +3,7 @@ import { cache } from './utilities/cache';
 function getBackground() {
   fetch('http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n=1')
     .then(r => r.json())
-    .then(data => cache.setItem('photo', 'http://www.bing.com' + data.images[0].url))
+    .then((data: any) => cache.setItem('photo', 'http://www.bing.com' + data.images[0].url))
     .then(url => fetch(url))
     // .then(r => r.blob())
     // .then(data => cache.setItem('photo', URL.createObjectURL(data)))

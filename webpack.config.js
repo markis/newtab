@@ -1,3 +1,5 @@
+const path = require('path');
+const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -7,29 +9,47 @@ const htmlMinifyOptions = {
 };
 
 module.exports = {
-  context: __dirname,
   entry: {
     newtab: "./newtab",
     background: "./background"
   },
   output: {
-    path: __dirname + "/dist",
-    libraryTarget: "var",
-    filename: "[name].js"
+    libraryTarget: 'umd',
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].js'
   },
   module: {
-    loaders: [
-      { test: /\.html$/, loader: "underscore-template-loader", query: { engine: 'lodash'} },
-      { test: /\.tsx?$/, loader: "awesome-typescript-loader" }
+    rules: [{
+        test: /\.html$/,
+        loader: "underscore-template-loader",
+        options: {
+          engine: 'lodash'
+        }
+      },
+      {
+        test: /\.tsx?$/,
+        use: "ts-loader"
+      }
     ]
   },
   resolve: {
-    extensions: ['', '.ts', '.tsx', '.js', '.jsx', '.css']
+    alias: {
+      'react': 'react/dist/react.min',
+      'react-dom': 'react-dom/dist/react-dom.min'
+    },
+    extensions: ['.ts', '.tsx', '.js', '.jsx', '.css']
   },
   plugins: [
-    new CopyWebpackPlugin([
-      { from: 'manifest.json' },
-      { from: 'stylesheets/*.css', flatten: true }
+    new CopyWebpackPlugin([{
+        from: 'manifest.json'
+      },
+      {
+        from: 'stylesheets/*.css',
+        flatten: true
+      },
+      {
+        from: 'images/*.png'
+      }
     ]),
     new HtmlWebpackPlugin({
       title: 'New Tab',

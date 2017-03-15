@@ -4,23 +4,8 @@
     "lib": [ "es6", "dom", "es2015.promise" ],
     "outDir": "tmp",
     "noImplicitAny": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "jsx": "react",
-    "typeRoots": [
-      "node_modules/@types"
-    ],
-    "types": [
-      "chrome",
-      "react",
-      "react-dom",
-      "whatwg-fetch"
-    ]
-  },
-  "exclude": [
-    "node_modules"
-  ],
-  "files": [
-    "newtab.tsx",
-    "background.ts"
-  ]
+    "importHelpers": true
+  }
 }
