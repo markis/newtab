@@ -1,5 +1,7 @@
 # newtab
 
+[![Build Status](https://travis-ci.org/markis/newtab.svg?branch=master)](https://travis-ci.org/markis/newtab)
+
 Chrome extension to take over the new tab.  It pulls the images from bing and displays them instead of the new tab in chrome.
 
 ### Learning React
