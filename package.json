@@ -6,7 +6,7 @@
   "devDependencies": {
     "@types/chrome": "0.0.47",
     "@types/react": "^15.0.16",
-    "@types/react-dom": "^0.14.23",
+    "@types/react-dom": "^15.5.0",
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
