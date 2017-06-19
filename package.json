@@ -22,7 +22,7 @@
     "tslib": "^1.6.0",
     "typescript": "^2.2.1",
     "underscore-template-loader": "^0.7.3",
-    "webpack": "^2.2.1"
+    "webpack": "^3.0.0"
   },
   "scripts": {
     "test": "npm run build:prod",
