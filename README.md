@@ -7,3 +7,8 @@ Chrome extension to take over the new tab.  It pulls the images from bing and di
 ### Learning React
 
 This project was my excuse to learn react. It was fun and turned into something useful.  Hopefully it helps you.
+
+## Support on Beerpay
+Hey dude! Help me out for a couple of :beers:!
+
+[![Beerpay](https://beerpay.io/markis/newtab/badge.svg?style=beer-square)](https://beerpay.io/markis/newtab)  [![Beerpay](https://beerpay.io/markis/newtab/make-wish.svg?style=flat-square)](https://beerpay.io/markis/newtab?focus=wish)
